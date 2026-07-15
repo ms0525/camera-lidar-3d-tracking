@@ -1,0 +1,157 @@
+{
+  "schema_version": 1,
+  "scope": "Local KITTI Tracking 2D development experiments",
+  "official_test_server_result": false,
+  "fine_tuned_models": false,
+  "units": {
+    "HOTA": "percent",
+    "DetA": "percent",
+    "AssA": "percent",
+    "MOTA": "percent",
+    "IDF1": "percent",
+    "FP": "count",
+    "FN": "count",
+    "IDSW": "count",
+    "runtime_seconds": "seconds"
+  },
+  "initial_pretrained_control": {
+    "sequence": "0000",
+    "class": "Car",
+    "detector_confidence": 0.28,
+    "image_size": 640,
+    "association_policy": "legacy control before exact-class gating",
+    "results": [
+      {
+        "detector": "YOLO11s default",
+        "runtime_seconds": 44.49,
+        "exported_rows": 753,
+        "other_classes_skipped": 277,
+        "HOTA": 47.811,
+        "DetA": 44.980,
+        "AssA": 53.331,
+        "MOTA": 28.372,
+        "IDF1": 54.462,
+        "FP": 74,
+        "FN": 67,
+        "IDSW": 13
+      },
+      {
+        "detector": "YOLO26s end-to-end",
+        "runtime_seconds": 41.36,
+        "exported_rows": 674,
+        "other_classes_skipped": 275,
+        "HOTA": 48.104,
+        "DetA": 44.135,
+        "AssA": 54.414,
+        "MOTA": 33.953,
+        "IDF1": 58.795,
+        "FP": 60,
+        "FN": 75,
+        "IDSW": 7
+      },
+      {
+        "detector": "YOLO26s one-to-many",
+        "runtime_seconds": 44.94,
+        "exported_rows": 741,
+        "other_classes_skipped": 331,
+        "HOTA": 48.724,
+        "DetA": 45.006,
+        "AssA": 54.101,
+        "MOTA": 29.302,
+        "IDF1": 58.525,
+        "FP": 75,
+        "FN": 71,
+        "IDSW": 6
+      }
+    ]
+  },
+  "corrected_exact_class_control": {
+    "sequence": "0000",
+    "detector": "YOLO26s end-to-end",
+    "class": "Car",
+    "association_policy": "deepsort-class-exact-match-v1",
+    "exported_rows": 675,
+    "HOTA": 48.726,
+    "MOTA": 35.349,
+    "IDF1": 59.277,
+    "FP": 58,
+    "FN": 73,
+    "IDSW": 8
+  },
+  "fixed_split_protocol": {
+    "detector": "YOLO26s end-to-end",
+    "detector_confidence": 0.28,
+    "class_confidence": {
+      "car": 0.28,
+      "person": 0.28
+    },
+    "image_size": 640,
+    "association_policy": "deepsort-class-exact-match-v1",
+    "tracked_class_policy": "kitti-evaluated-classes-v1",
+    "embedder_batch_size": 1,
+    "splits_file": "config/kitti_tracking_splits.json",
+    "results": [
+      {
+        "split": "trackeval_training_minus_val",
+        "sequences": 12,
+        "frames": 5027,
+        "class": "Car",
+        "HOTA": 49.539,
+        "DetA": 48.802,
+        "AssA": 51.435,
+        "MOTA": 56.788,
+        "IDF1": 62.410,
+        "FP": 1314,
+        "FN": 5540,
+        "IDSW": 285
+      },
+      {
+        "split": "trackeval_training_minus_val",
+        "sequences": 12,
+        "frames": 5027,
+        "class": "Pedestrian",
+        "HOTA": 38.507,
+        "DetA": 38.762,
+        "AssA": 38.734,
+        "MOTA": 41.026,
+        "IDF1": 55.505,
+        "FP": 1300,
+        "FN": 3217,
+        "IDSW": 106
+      },
+      {
+        "split": "trackeval_val",
+        "sequences": 9,
+        "frames": 2981,
+        "class": "Car",
+        "HOTA": 55.708,
+        "DetA": 51.714,
+        "AssA": 61.354,
+        "MOTA": 63.479,
+        "IDF1": 69.791,
+        "FP": 266,
+        "FN": 2368,
+        "IDSW": 123
+      },
+      {
+        "split": "trackeval_val",
+        "sequences": 9,
+        "frames": 2981,
+        "class": "Pedestrian",
+        "HOTA": 43.126,
+        "DetA": 40.050,
+        "AssA": 46.975,
+        "MOTA": 40.826,
+        "IDF1": 59.921,
+        "FP": 701,
+        "FN": 1193,
+        "IDSW": 41
+      }
+    ]
+  },
+  "limitations": [
+    "These are local development results, not official KITTI test-server scores.",
+    "The fixed development-validation split is disjoint from tuning, but sequence 0014 was inspected during earlier smoke experiments and is not a pristine holdout.",
+    "The reported checkpoints are pretrained controls; detector fine-tuning was prepared but not completed for these results."
+  ]
+}

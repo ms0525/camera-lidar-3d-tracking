@@ -1,0 +1,36 @@
+Camera + LiDAR Model Lab
+Copyright (C) 2026 Project contributors
+SPDX-License-Identifier: AGPL-3.0-only
+
+This project's original source code is distributed under the GNU Affero
+General Public License version 3.0 only. See LICENSE for the complete terms.
+
+Third-Party Notices
+
+Ultralytics YOLO
+----------------
+
+This project integrates Ultralytics YOLO:
+https://github.com/ultralytics/ultralytics
+
+Ultralytics YOLO code and models are made available under the GNU Affero
+General Public License version 3.0, with separate Enterprise licensing
+available from Ultralytics:
+https://www.ultralytics.com/license
+
+No Ultralytics model weights are distributed in this repository.
+
+KITTI Vision Benchmark Suite
+----------------------------
+
+This repository does not contain or redistribute KITTI images, point clouds,
+annotations, calibration files, or visualizations reproducing those assets.
+Its aggregate development metrics do not include source dataset content. Users
+who enable local KITTI mode must obtain the data directly from:
+https://www.cvlibs.net/datasets/kitti/
+
+KITTI states that its datasets and benchmarks are licensed under
+CC BY-NC-SA 3.0 and made available for academic use. Users are responsible
+for complying with the applicable KITTI license and terms.
+
+This project is independent and is not endorsed by Ultralytics or KITTI.

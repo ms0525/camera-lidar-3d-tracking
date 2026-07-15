@@ -1,0 +1,5 @@
+# Keep repository text deterministic across Windows and Linux CI.
+* text=auto eol=lf
+
+# Public documentation assets are binary and must never be line-normalized.
+*.png binary

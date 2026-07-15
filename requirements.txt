@@ -1,0 +1,15 @@
+# Install the correct PyTorch build (ROCm, CUDA, or CPU) before this file so
+# Ultralytics does not choose a different backend-specific wheel implicitly.
+# Core project dependencies were tested with Python 3.10; the Windows ROCm
+# training workflow was verified with Python 3.12.
+ultralytics==8.4.95
+opencv-python==4.12.0.88
+open3d==0.19.0
+numpy==2.2.6
+scipy==1.15.3
+matplotlib==3.10.3
+deep-sort-realtime==1.3.2
+# deep-sort-realtime 1.3.2 still imports pkg_resources. Setuptools removed that
+# compatibility module in 82.0.0, so local tracking pins a known compatible
+# pre-removal release until the embedder migrates to importlib.resources.
+setuptools==80.10.2

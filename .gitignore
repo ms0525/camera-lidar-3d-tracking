@@ -1,0 +1,80 @@
+# Python environments and caches
+/venv/
+/.venv/
+/env/
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Packaging and build artifacts
+/build/
+/dist/
+*.egg-info/
+*.egg
+
+# Jupyter and IDE metadata
+.ipynb_checkpoints/
+/.idea/
+/.vscode/
+*.code-workspace
+
+# Windows and Microsoft Office temporary files
+Thumbs.db
+Desktop.ini
+~$*
+
+# Generated model runs and visualizations
+/runs/
+/datasets/
+/outputs/
+/results/
+
+# Downloaded or locally extracted third-party datasets. KITTI data is not
+# redistributed by this repository; users obtain it from the official source.
+/data/images/
+/data/calib/
+/data/labels/
+/data/pointcloud/
+/data/tracked_frames/
+/data/tracked_3d_frames/
+/data/kitti_predictions/
+/data/evaluation/
+/data/experiments/
+/data/model_comparison/
+/data/threshold_sweeps/
+/data/tracking_experiments/
+/data/dashboard_cache/
+/tools/TrackEval/
+/screenshots/
+/ScreenCapture_*.png
+/ScreenCamera_*.json
+
+# Model checkpoints and exported runtimes can carry separate license terms and
+# are intentionally supplied by each user.
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.engine
+*.weights
+*.safetensors
+*.torchscript
+*.tflite
+*.mlpackage
+*.h5
+*.pb
+
+# Local presentations may contain screenshots or third-party dataset imagery.
+/3D_detection.pptx
+
+# Streamlit secrets and machine-local configuration
+/.env
+/.env.*
+!/.env.example
+/.streamlit/secrets.toml
+/app/.streamlit/secrets.toml
