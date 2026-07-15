@@ -86,7 +86,7 @@ ignored `runs` directory unless `-Project` is supplied:
 ```powershell
 .\scripts\train_kitti_rocm.ps1 `
   -DatasetRoot "<path-to-ultralytics-kitti-dataset>" `
-  -Model "<path-to-compatible-yolo-weights>"
+  -Model yolo26s.pt
 ```
 
 ## Dashboard environment variables
