@@ -2,6 +2,8 @@
 from __future__ import annotations
 
 import os
+import subprocess
+import sys
 import time
 import unittest
 from pathlib import Path
@@ -21,6 +23,30 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
     "install app/requirements.txt to run the Streamlit application smoke test",
 )
 class StreamlitDashboardTests(unittest.TestCase):
+    def test_entrypoint_bootstraps_repository_root(self) -> None:
+        environment = os.environ.copy()
+        environment.pop("PYTHONPATH", None)
+        command = (
+            "from streamlit.testing.v1 import AppTest; "
+            "app = AppTest.from_file('streamlit_app.py', default_timeout=60).run(); "
+            "assert not app.exception, [item.value for item in app.exception]"
+        )
+        result = subprocess.run(
+            [sys.executable, "-c", command],
+            cwd=PROJECT_ROOT / "app",
+            env=environment,
+            capture_output=True,
+            text=True,
+            timeout=90,
+            check=False,
+        )
+
+        self.assertEqual(
+            result.returncode,
+            0,
+            msg=f"stdout:\n{result.stdout}\nstderr:\n{result.stderr}",
+        )
+
     def test_public_source_link_uses_deployment_revision_url(self) -> None:
         source_url = "https://example.com/owner/repository/tree/commit-sha"
         with patch.dict(os.environ, {"DASHBOARD_SOURCE_URL": source_url}):

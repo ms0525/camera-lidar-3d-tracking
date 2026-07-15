@@ -5,12 +5,20 @@ from __future__ import annotations
 
 import hashlib
 import os
+import sys
 import threading
 import time
 from pathlib import Path
 from typing import Any
 
 import streamlit as st
+
+# Streamlit Community Cloud executes this file directly, which makes ``app/``
+# the first import location instead of the repository root. Add the root before
+# importing project packages so the same entry point works locally and hosted.
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
 
 from app.dashboard_core import (
     DEFAULT_FRAME_COUNT,
@@ -26,7 +34,6 @@ from app.dashboard_core import (
 )
 
 
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
 PANEL_HEIGHT = 460
 PANEL_CONTENT_HEIGHT = 360
 CAMERA_PANEL_ASPECT_RATIO = 2.0
