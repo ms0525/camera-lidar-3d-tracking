@@ -3,6 +3,8 @@
 [![Public preview CI](https://github.com/ms0525/camera-lidar-3d-tracking/actions/workflows/public-preview.yml/badge.svg)](https://github.com/ms0525/camera-lidar-3d-tracking/actions/workflows/public-preview.yml)
 [![License: AGPL-3.0](https://img.shields.io/badge/license-AGPL--3.0-blue.svg)](LICENSE)
 
+[**Launch the hosted Streamlit demo →**](https://camera-lidar-model-lab.streamlit.app/)
+
 A multimodal perception prototype that compares YOLO11s and YOLO26s camera
 detections, assigns class-aware Deep SORT track IDs, and associates calibrated
 LiDAR returns with each 2D box to estimate an approximate 3D location.
